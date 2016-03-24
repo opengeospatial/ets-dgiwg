@@ -165,9 +165,7 @@
 
   <modules>
     <module>ets-core</module>
-    <module>ets-wms-core</module>
     <module>ets-dgiwg-wms</module>
-    <module>ets-wfs-core</module>
     <module>ets-dgiwg-wfs</module>
   </modules>
 
