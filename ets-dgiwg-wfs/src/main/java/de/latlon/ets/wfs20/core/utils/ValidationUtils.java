@@ -29,7 +29,7 @@ public class ValidationUtils {
         XmlSchemaCompiler xsdCompiler = new XmlSchemaCompiler( entityCatalog );
         Schema wfsSchema = null;
         try {
-            URL schemaURL = ValidationUtils.class.getResource( "xsd/opengis/wfs/2.0/wfs-2.0.0.xsd" );
+            URL schemaURL = ValidationUtils.class.getResource( "xsd/opengis/wfs/2.0/wfs-2.0.2.xsd" );
             Source xsdSource = new StreamSource( schemaURL.toString() );
             wfsSchema = xsdCompiler.compileXmlSchema( new Source[] { xsdSource } );
         } catch ( SAXException e ) {

@@ -41,7 +41,7 @@ public class TemporalFilterTest extends AbstractTemporalFilterTest {
 
     @BeforeClass
     public void init( ITestContext testContext ) {
-        // Mechanism can be replaced when bug regarding WFS 2.0.0 schema is fixed in ets-wfs20. Uncomment two lines
+        // Mechanism can be replaced when bug regarding WFS 2.0.2 schema is fixed in ets-wfs20. Uncomment two lines
         // below and delete last line (plus method).
         // this.wfsSchema = (Schema) testContext.getSuite().getAttribute( SuiteAttribute.WFS_SCHEMA.getName() );
         // assertNotNull( this.wfsSchema, "WFS schema not found in suite fixture." );
