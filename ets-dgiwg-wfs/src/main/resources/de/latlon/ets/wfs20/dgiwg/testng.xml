@@ -10,7 +10,7 @@
 
   <test name="Prerequisites">
     <classes>
-      <class name="org.opengis.cite.iso19142.Prerequisites" />
+      <class name="org.opengis.cite.iso19142.SuitePreconditions" />
     </classes>
   </test>
 
@@ -43,8 +43,8 @@
       <class name="org.opengis.cite.iso19142.basic.filter.PropertyIsEqualToOperatorTests" />
       <class name="org.opengis.cite.iso19142.basic.filter.ComparisonOperatorTests" />
       <class name="org.opengis.cite.iso19142.basic.filter.PropertyIsLikeOperatorTests" />
-      <class name="org.opengis.cite.iso19142.basic.filter.ResourceIdOperatorTests" />
-      <class name="org.opengis.cite.iso19142.basic.filter.BBOXOperatorTests" />
+      <class name="org.opengis.cite.iso19142.basic.filter.ResourceIdFilterTests" />
+      <class name="org.opengis.cite.iso19142.basic.filter.spatial.BBOXOperatorTests" />
     </classes>
   </test>
   <test name="Transactional WFS">
