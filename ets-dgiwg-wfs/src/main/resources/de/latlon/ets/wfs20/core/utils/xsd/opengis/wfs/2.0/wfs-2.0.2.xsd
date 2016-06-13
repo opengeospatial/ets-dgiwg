@@ -20,6 +20,8 @@
     schemaLocation="http://schemas.opengis.net/ows/1.1.0/owsAll.xsd"/>
   <xsd:import namespace="http://www.opengis.net/fes/2.0"
     schemaLocation="http://schemas.opengis.net/filter/2.0/filterAll.xsd"/>
+  <xsd:import namespace="http://www.opengis.net/gml/3.2"
+              schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
 
   <xsd:complexType name="BaseRequestType" abstract="true">
     <xsd:attribute name="service" type="xsd:string" use="required" fixed="WFS"/>
