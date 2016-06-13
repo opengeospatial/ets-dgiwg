@@ -250,6 +250,43 @@ public class ETSAssert {
         }
     }
 
+    /**
+     * Checks whether an XPath 1.0 expression holds true for the given evaluation context.
+     *
+     * The method arguments will be logged at level FINE or lower.
+     * 
+     * @param expr
+     *            A valid XPath 1.0 expression.
+     * @param context
+     *            The context node.
+     * @param nsBindings
+     *            A collection of namespace bindings for the XPath expression, where each entry maps a namespace URI
+     *            (key) to a prefix (value). Never {@code null}.
+     * @return true if XPath 1.0 expression holds true for the given evaluation context, false otherwise.
+     */
+    public static Boolean checkXPath( String expr, Node context, NamespaceBindings nsBindings )
+                    throws AssertionError {
+        if ( null == context ) {
+            throw new NullPointerException( "Context node is null." );
+        }
+        LOGR.log( Level.FINE, "Evaluating \"{0}\" against context node:\n{1}",
+                  new Object[] { expr, XMLUtils.writeNodeToString( context ) } );
+        XPathFactory factory = createFactory();
+        XPath xpath = factory.newXPath();
+        LOGR.log( Level.FINE, "Using XPath implementation: " + xpath.getClass().getName() );
+        xpath.setNamespaceContext( nsBindings );
+        Boolean result;
+        try {
+            result = (Boolean) xpath.evaluate( expr, context, XPathConstants.BOOLEAN );
+        } catch ( XPathExpressionException xpe ) {
+            String msg = ErrorMessage.format( ErrorMessageKey.XPATH_ERROR, expr );
+            LOGR.log( Level.WARNING, msg, xpe );
+            throw new AssertionError( msg );
+        }
+        LOGR.log( Level.FINE, "XPath result: " + result );
+        return result;
+    }
+
     private static boolean containsContentType( List<String> contentTypes, String expectedContentType ) {
         if ( contentTypes != null )
             for ( String contentType : contentTypes ) {
@@ -276,29 +313,6 @@ public class ETSAssert {
             // An implementation for the W3C DOM is always available
             throw new RuntimeException( e );
         }
-    }
-
-    private static Boolean checkXPath( String expr, Node context, NamespaceBindings nsBindings )
-                    throws AssertionError {
-        if ( null == context ) {
-            throw new NullPointerException( "Context node is null." );
-        }
-        LOGR.log( Level.FINE, "Evaluating \"{0}\" against context node:\n{1}",
-                  new Object[] { expr, XMLUtils.writeNodeToString( context ) } );
-        XPathFactory factory = createFactory();
-        XPath xpath = factory.newXPath();
-        LOGR.log( Level.FINE, "Using XPath implementation: " + xpath.getClass().getName() );
-        xpath.setNamespaceContext( nsBindings );
-        Boolean result;
-        try {
-            result = (Boolean) xpath.evaluate( expr, context, XPathConstants.BOOLEAN );
-        } catch ( XPathExpressionException xpe ) {
-            String msg = ErrorMessage.format( ErrorMessageKey.XPATH_ERROR, expr );
-            LOGR.log( Level.WARNING, msg, xpe );
-            throw new AssertionError( msg );
-        }
-        LOGR.log( Level.FINE, "XPath result: " + result );
-        return result;
     }
 
 }
