@@ -18,7 +18,7 @@ import de.latlon.ets.core.util.NamespaceBindings;
 import de.latlon.ets.wfs20.core.domain.WfsNamespaces;
 
 /**
- * Provides data from WFS 2.0.0 capabilities.
+ * Provides data from WFS 2.0 capabilities.
  * 
  * @author <a href="mailto:goltz@lat-lon.de">Lyn Goltz</a>
  */
@@ -30,7 +30,7 @@ public final class WfsDataProvider {
     }
 
     /**
-     * Parses all FeatureType elements from the WFS 2.0.0 capabilities document.
+     * Parses all FeatureType elements from the WFS 2.0 capabilities document.
      * 
      * @param protocolBinding
      *            used to retrieve the data, never <code>null</code>
@@ -48,7 +48,7 @@ public final class WfsDataProvider {
     }
 
     /**
-     * Parses all StoredQueryDescription nodes from a WFS 2.0.0 DescribeStoredQueries response document.
+     * Parses all StoredQueryDescription nodes from a WFS 2.0 DescribeStoredQueries response document.
      * 
      * @param protocolBinding
      *            used to retrieve the data, never <code>null</code>

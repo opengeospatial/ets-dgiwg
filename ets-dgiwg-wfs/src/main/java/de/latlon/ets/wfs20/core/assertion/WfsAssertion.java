@@ -11,7 +11,7 @@ import de.latlon.ets.core.assertion.ETSAssert;
 import de.latlon.ets.wfs20.core.domain.WfsNamespaces;
 
 /**
- * Provides WFS 2.0.0 specific test assertion methods
+ * Provides WFS 2.0 specific test assertion methods
  * 
  * @author <a href="mailto:goltz@lat-lon.de">Lyn Goltz</a>
  */

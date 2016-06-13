@@ -13,7 +13,7 @@
 
   <properties>
     <ets-code>dgiwgwfs20</ets-code>
-    <spec-version>2.0.0</spec-version>
+    <spec-version>2.0</spec-version>
   </properties>
 
   <build>

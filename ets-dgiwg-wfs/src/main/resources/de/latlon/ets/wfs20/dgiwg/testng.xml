@@ -14,7 +14,7 @@
     </classes>
   </test>
 
-  <!-- WFS 2.0.0 test suite -->
+  <!-- WFS 2.0 test suite -->
   <test name="All GML application schemas">
     <classes>
       <class name="org.opengis.cite.iso19136.general.XMLSchemaTests" />

@@ -5,13 +5,13 @@
   <standard>
     <name>DGIWG Web Feature Service (DGIWG WFS)</name>
     <version>
-      <name>2.0.0</name>
+      <name>2.0</name>
       <suite>
         <namespace-uri>http://www.opengis.net/cite/iso19142</namespace-uri>
         <prefix>tns</prefix>
         <local-name>ets-${ets-code}-${version}</local-name>
-        <title>DGIWG WFS 2.0.0 Conformance Test Suite</title>
-        <description>Checks DGIWG WFS 2.0.0 implementations for conformance to DGIWG WFS.</description>
+        <title>DGIWG WFS 2.0 Conformance Test Suite</title>
+        <description>Checks DGIWG WFS 2.0 implementations for conformance to DGIWG WFS.</description>
       </suite>
       <revision>
         <name>${project.version}</name>
