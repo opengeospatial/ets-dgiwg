@@ -29,20 +29,17 @@ public final class WfsAssertion {
      *            element.
      */
     public static void assertSimpleWFSCapabilities( Document doc ) {
-        ETSAssert.assertQualifiedName( doc.getDocumentElement(),
-                                       new QName( WfsNamespaces.WFS20, WFS2.WFS_CAPABILITIES ) );
+        ETSAssert.assertQualifiedName( doc.getDocumentElement(), new QName( WfsNamespaces.WFS20, WFS2.WFS_CAPABILITIES ) );
     }
 
     /**
-     * Asserts that the actual content type matches the expected content type.
+     * Asserts that the version of the capabilities response is 2.0.2.
      * 
-     * @param headers
-     *            The header of the response.
-     * @param expectedContentType
-     *            The expected content type, never <code>null</code>.
+     * @param response
+     *            The capabilities response.
      */
-    public static void assertVersion200( Document response ) {
-        assertXPath( "//wfs:WFS_Capabilities/@version = '2.0.0'", response, WfsNamespaces.withStandardBindings() );
+    public static void assertVersion202( Document response ) {
+        assertXPath( "//wfs:WFS_Capabilities/@version = '2.0.2'", response, WfsNamespaces.withStandardBindings() );
     }
 
 }

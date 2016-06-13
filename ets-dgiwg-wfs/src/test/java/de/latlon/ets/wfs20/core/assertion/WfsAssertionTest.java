@@ -3,7 +3,7 @@
  */
 package de.latlon.ets.wfs20.core.assertion;
 
-import static de.latlon.ets.wfs20.core.assertion.WfsAssertion.assertVersion200;
+import static de.latlon.ets.wfs20.core.assertion.WfsAssertion.assertVersion202;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,13 +22,13 @@ import org.xml.sax.SAXException;
  */
 public class WfsAssertionTest {
 
-    @Test
-    public void testAssertVersion200()
+    @Test(expected = AssertionError.class)
+    public void testAssertVersion202WithCapabilitiesVersion200ShouldFail()
                     throws Exception {
-        assertVersion200( wfsCapabilities() );
+        assertVersion202( wfsCapabilitiesVersion200() );
     }
 
-    private Document wfsCapabilities()
+    private Document wfsCapabilitiesVersion200()
                     throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware( true );
