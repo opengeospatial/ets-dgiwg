@@ -45,7 +45,7 @@ public class TemporalFilterTest extends AbstractTemporalFilterTest {
         // below and delete last line (plus method).
         // this.wfsSchema = (Schema) testContext.getSuite().getAttribute( SuiteAttribute.WFS_SCHEMA.getName() );
         // assertNotNull( this.wfsSchema, "WFS schema not found in suite fixture." );
-        this.wfsSchema = ValidationUtils.createWFSSchema();
+        this.wfsSchema = ValidationUtils.createWFSSchema( wfsMetadata );
     }
 
     @DataProvider(name = "protocol-featureType-temporalOperator")
