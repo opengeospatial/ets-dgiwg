@@ -54,7 +54,7 @@ public class GetCapabilitiesSrsTest extends WfsBaseFixture {
                 isOneExpectedSrsSupported = checkXPath( xPathXml, this.wfsMetadata, NS_BINDINGS );
             }
         }
-        assertTrue( isOneExpectedSrsSupported, "Capabilities do not contain mandatory SRS: " + expectedSrs );
+        assertTrue( isOneExpectedSrsSupported, "Capabilities do not contain mandatory SRS in one of the following notation: " + expectedSrs );
     }
 
 }
