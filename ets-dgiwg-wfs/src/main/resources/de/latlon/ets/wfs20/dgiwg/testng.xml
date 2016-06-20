@@ -10,11 +10,11 @@
 
   <test name="Prerequisites">
     <classes>
-      <class name="org.opengis.cite.iso19142.Prerequisites" />
+      <class name="org.opengis.cite.iso19142.SuitePreconditions" />
     </classes>
   </test>
 
-  <!-- WFS 2.0.0 test suite -->
+  <!-- WFS 2.0 test suite -->
   <test name="All GML application schemas">
     <classes>
       <class name="org.opengis.cite.iso19136.general.XMLSchemaTests" />
@@ -43,8 +43,8 @@
       <class name="org.opengis.cite.iso19142.basic.filter.PropertyIsEqualToOperatorTests" />
       <class name="org.opengis.cite.iso19142.basic.filter.ComparisonOperatorTests" />
       <class name="org.opengis.cite.iso19142.basic.filter.PropertyIsLikeOperatorTests" />
-      <class name="org.opengis.cite.iso19142.basic.filter.ResourceIdOperatorTests" />
-      <class name="org.opengis.cite.iso19142.basic.filter.BBOXOperatorTests" />
+      <class name="org.opengis.cite.iso19142.basic.filter.ResourceIdFilterTests" />
+      <class name="org.opengis.cite.iso19142.basic.filter.spatial.BBOXOperatorTests" />
     </classes>
   </test>
   <test name="Transactional WFS">
@@ -70,6 +70,7 @@
       <class name="de.latlon.ets.wfs20.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesAbstractTest" />
       <class name="de.latlon.ets.wfs20.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesKeywordTest" />
       <class name="de.latlon.ets.wfs20.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesAccessConstraintTest" />
+      <class name="de.latlon.ets.wfs20.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesVersionTest" />
       <class name="de.latlon.ets.wfs20.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesFeatureTypeElementsTest" />
       <class name="de.latlon.ets.wfs20.core.dgiwg.testsuite.describestoredqueries.DescribeStoredQueriesElementsTest" />
       <!-- Requirements 1-6 -->

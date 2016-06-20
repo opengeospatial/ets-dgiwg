@@ -8,7 +8,7 @@ package de.latlon.ets.wfs20.core;
 public enum TestRunArg {
 
     /**
-     * An absolute URI referring to metadata about the WMS implementation under test. This is expected to be a WFS 2.0.0
+     * An absolute URI referring to metadata about the WMS implementation under test. This is expected to be a WFS 2.0
      * capabilities document where the document element is {@code http://www.opengis.net/wfs} WFS_Capabilities}.
      */
     WFS,

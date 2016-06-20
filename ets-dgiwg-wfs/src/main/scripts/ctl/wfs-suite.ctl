@@ -14,8 +14,8 @@
   </ctl:function>
 
   <ctl:suite name="tns:ets-${ets-code}-${version}">
-    <ctl:title>DGIWG WFS 2.0.0 Conformance Test Suite</ctl:title>
-    <ctl:description>Checks DGIWG WFS 2.0.0 implementations for conformance to DGIWG WFS 2.0.0.</ctl:description>
+    <ctl:title>DGIWG WFS 2.0 Conformance Test Suite</ctl:title>
+    <ctl:description>Checks DGIWG WFS 2.0 implementations for conformance to DGIWG WFS 2.0.</ctl:description>
     <ctl:starting-test>tns:Main</ctl:starting-test>
   </ctl:suite>
 
@@ -24,7 +24,7 @@
     <ctl:code>
       <xsl:variable name="form-data">
         <ctl:form method="POST" width="800" height="600" xmlns="http://www.w3.org/1999/xhtml">
-          <h2>DGIWG WFS 2.0.0 Conformance Test Suite</h2>
+          <h2>DGIWG WFS 2.0 Conformance Test Suite</h2>
           <div style="background:#F0F8FF" bgcolor="#F0F8FF">
             <p>
               A feature identifier may be supplied for the purpose of verifying the behavior of the
