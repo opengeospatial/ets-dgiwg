@@ -16,7 +16,7 @@ import javax.xml.xpath.XPathFactoryConfigurationException;
 import org.opengis.cite.iso19142.ErrorMessage;
 import org.opengis.cite.iso19142.ErrorMessageKeys;
 import org.opengis.cite.iso19142.ProtocolBinding;
-import org.opengis.cite.iso19142.util.WFSRequest;
+import org.opengis.cite.iso19142.util.WFSMessage;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -107,16 +107,14 @@ public class TemporalFilterTest extends AbstractTemporalFilterTest {
                                                 FeatureTypeToPropertyAndValue featureTypeToPropertyAndValue,
                                                 String temporalOperatorName ) {
         checkIfDataProviderFoundTestableData( binding, featureTypeToPropertyAndValue, temporalOperatorName );
-        Element valueRef = WFSRequest.createValueReference( featureTypeToPropertyAndValue.getProperty() );
-        WFSRequest.appendSimpleQuery( this.reqEntity, featureTypeToPropertyAndValue.getFeatureType() );
+        Element valueRef = WFSMessage.createValueReference( featureTypeToPropertyAndValue.getProperty() );
+        WFSMessage.appendSimpleQuery( this.reqEntity, featureTypeToPropertyAndValue.getFeatureType() );
         addTemporalOperatorPredicate( this.reqEntity, temporalOperatorName, valueRef,
                                       featureTypeToPropertyAndValue.getValueRange() );
-
         ClientResponse rsp = wfsClient.submitRequest( reqEntity, binding );
         assertEquals( rsp.getStatus(), ClientResponse.Status.OK.getStatusCode(),
                       ErrorMessage.get( ErrorMessageKeys.UNEXPECTED_STATUS ) );
-
-        this.rspEntity = extractBodyAsDocument( rsp, binding );
+        this.rspEntity = extractBodyAsDocument(rsp);
         assertSchemaValid( wfsSchema, this.rspEntity );
     }
 

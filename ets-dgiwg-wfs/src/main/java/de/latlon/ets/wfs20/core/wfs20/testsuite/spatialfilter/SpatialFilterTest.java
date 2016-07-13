@@ -22,7 +22,7 @@ import org.opengis.cite.iso19142.Namespaces;
 import org.opengis.cite.iso19142.ProtocolBinding;
 import org.opengis.cite.iso19142.WFS2;
 import org.opengis.cite.iso19142.util.ServiceMetadataUtils;
-import org.opengis.cite.iso19142.util.WFSRequest;
+import org.opengis.cite.iso19142.util.WFSMessage;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -95,16 +95,15 @@ public class SpatialFilterTest extends AbstractSpatialFilterTest {
                         + "OGC 09-026R2 Spatial Filter CC, A.8", dataProvider = "protocol-featureType-spatialOperator")
     public void withSpatialOperatorFilter( ProtocolBinding binding, QName featureType, String spatialOperatorName ) {
         XSElementDeclaration geomProp = findGeometryProperty( featureType );
-        Element valueRef = WFSRequest.createValueReference( geomProp );
-        WFSRequest.appendSimpleQuery( this.reqEntity, featureType );
+        Element valueRef = WFSMessage.createValueReference( geomProp );
+        WFSMessage.appendSimpleQuery( this.reqEntity, featureType );
         Document gmlEnv = Extents.envelopeAsGML( featureInfo.get( featureType ).getGeoExtent() );
         addSpatialOperatorPredicate( this.reqEntity, spatialOperatorName, gmlEnv.getDocumentElement(), valueRef );
 
         ClientResponse rsp = wfsClient.submitRequest( reqEntity, binding );
         assertEquals( rsp.getStatus(), ClientResponse.Status.OK.getStatusCode(),
                       ErrorMessage.get( ErrorMessageKeys.UNEXPECTED_STATUS ) );
-
-        this.rspEntity = extractBodyAsDocument( rsp, binding );
+        this.rspEntity = extractBodyAsDocument(rsp);
         assertSchemaValid( wfsSchema, this.rspEntity );
     }
 

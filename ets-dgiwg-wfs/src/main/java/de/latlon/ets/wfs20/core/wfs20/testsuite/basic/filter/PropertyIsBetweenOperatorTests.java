@@ -36,7 +36,7 @@ import org.opengis.cite.iso19142.WFS2;
 import org.opengis.cite.iso19142.basic.filter.QueryFilterFixture;
 import org.opengis.cite.iso19142.util.AppSchemaUtils;
 import org.opengis.cite.iso19142.util.TestSuiteLogger;
-import org.opengis.cite.iso19142.util.WFSRequest;
+import org.opengis.cite.iso19142.util.WFSMessage;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
@@ -81,11 +81,11 @@ public class PropertyIsBetweenOperatorTests extends QueryFilterFixture {
             XSElementDeclaration propDecl = propRange.getKey();
             QName propName = new QName( propDecl.getNamespace(), propDecl.getName() );
 
-            WFSRequest.appendSimpleQuery( this.reqEntity, featureType );
+            WFSMessage.appendSimpleQuery( this.reqEntity, featureType );
             addPropertyIsBetweenPredicate( this.reqEntity, propName, propValueMin, propValueMax );
 
             ClientResponse rsp = wfsClient.submitRequest( reqEntity, binding );
-            this.rspEntity = extractBodyAsDocument( rsp, binding );
+            this.rspEntity = extractBodyAsDocument(rsp);
 
             assertEquals( rsp.getStatus(), ClientResponse.Status.OK.getStatusCode(),
                           ErrorMessage.get( ErrorMessageKeys.UNEXPECTED_STATUS ) );
@@ -126,7 +126,7 @@ public class PropertyIsBetweenOperatorTests extends QueryFilterFixture {
             QName propName = new QName( "http://example.org", "undefined", "ex" );
             QName featureType = retrieveRandomFeatureType();
 
-            WFSRequest.appendSimpleQuery( this.reqEntity, featureType );
+            WFSMessage.appendSimpleQuery( this.reqEntity, featureType );
             addPropertyIsBetweenPredicate( this.reqEntity, propName, "1355941270", "1355941271" );
 
             ClientResponse rsp = wfsClient.submitRequest( reqEntity, binding );
