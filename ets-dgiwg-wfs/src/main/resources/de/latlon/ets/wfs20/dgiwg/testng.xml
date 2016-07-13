@@ -5,7 +5,6 @@
   <listeners>
     <listener class-name="org.opengis.cite.iso19142.TestRunListener" />
     <listener class-name="org.opengis.cite.iso19142.SuiteFixtureListener" />
-    <listener class-name="org.opengis.cite.iso19136.SuiteFixtureListener" />
   </listeners>
 
   <test name="Prerequisites">
@@ -23,7 +22,7 @@
       <class name="org.opengis.cite.iso19136.general.ComplexPropertyTests" />
     </classes>
   </test>
-  <test name="GML application schemas defining features and feature collections">
+  <test name="GML application schemas defining features">
     <classes>
       <class name="org.opengis.cite.iso19136.components.FeatureComponentTests" />
     </classes>
