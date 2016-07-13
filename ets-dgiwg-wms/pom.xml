@@ -8,7 +8,7 @@
   <parent>
     <groupId>de.latlon</groupId>
     <artifactId>ets-dgiwg</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.9</version>
   </parent>
 
   <properties>
