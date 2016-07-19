@@ -30,7 +30,7 @@ public class WfsKvpRequest {
     }
 
     /**
-     * @return the KVPs as query string (e.g. key1=value1&key2=value2)
+     * @return the KVPs as query string (e.g. key1=value1&amp;key2=value2)
      */
     public String asQueryString() {
         StringBuilder sb = new StringBuilder();

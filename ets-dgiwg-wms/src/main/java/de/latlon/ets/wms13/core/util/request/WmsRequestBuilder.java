@@ -148,7 +148,7 @@ public final class WmsRequestBuilder {
     /**
      * @param wmsCapabilities
      *            the capabilities of the WMS, never <code>null</code>
-     * @param opNamefeature
+     * @param opName
      *            /tegeoinfoGetMapTp-116 the name of the operation, never <code>null</code>
      * @return one of the supported formats of the operation, <code>null</code> if no format is specified
      */

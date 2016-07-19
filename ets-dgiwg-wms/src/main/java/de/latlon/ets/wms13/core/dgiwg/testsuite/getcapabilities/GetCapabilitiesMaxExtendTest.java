@@ -12,7 +12,7 @@ import javax.xml.xpath.XPathFactoryConfigurationException;
 import org.testng.annotations.Test;
 
 /**
- * Tests if MaxWidth >= 800 and MaxHeight >= 800.
+ * Tests if MaxWidth greater/equal 800 and MaxHeight greater/equal 800.
  * 
  * @author <a href="mailto:goltz@lat-lon.de">Lyn Goltz</a>
  */

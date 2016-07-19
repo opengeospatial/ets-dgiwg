@@ -34,11 +34,10 @@ public final class WmsAssertion {
 
     /**
      * Asserts that the actual content type matches the expected content type.
-     * 
-     * @param headers
-     *            The header of the response.
-     * @param expectedContentType
-     *            The expected content type, never <code>null</code>.
+     *
+     * @param response
+     *            A Document node having {http://www.opengis.net/wms} {@value DGIWGWMS#WMS_CAPABILITIES} as the root
+     *            element.
      */
     public static void assertVersion130( Document response ) {
         assertXPath( "//wms:WMS_Capabilities/@version = '1.3.0'", response, WmsNamespaces.withStandardBindings() );

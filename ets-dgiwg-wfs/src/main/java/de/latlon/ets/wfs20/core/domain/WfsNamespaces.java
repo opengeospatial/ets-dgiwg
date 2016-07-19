@@ -34,7 +34,7 @@ public final class WfsNamespaces {
      * Creates a NamespaceBindings object that declares the following namespace bindings:
      * 
      * <ul>
-     * <li>wfs: {@value de.latlon.ets.wfs20.core.domain.WfsNamespaces#WFS}</li>
+     * <li>wfs: {@value de.latlon.ets.wfs20.core.domain.WfsNamespaces#WFS20}</li>
      * <li>xlink: {@value de.latlon.ets.wfs20.core.domain.WfsNamespaces#XLINK}</li>
      * </ul>
      * 

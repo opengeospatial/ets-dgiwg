@@ -29,7 +29,7 @@ public class BoundingBox {
      * @param maxY
      *            the max y value, must be a value greater than minY
      * @throws IllegalArgumentException
-     *             if crs is <code>null</code> or minX >= maxX or minY >= maxY
+     *             if crs is <code>null</code> or minX greater/equal maxX or minY greater/equal maxY
      */
     public BoundingBox( String crs, double minX, double minY, double maxX, double maxY ) {
         checkParameters( crs, minX, minY, maxX, maxY );

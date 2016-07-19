@@ -48,8 +48,7 @@ import com.sun.jersey.api.client.ClientResponse;
 /**
  * Tests the response to a GetFeature request that includes a {@code PropertyIsBetween} filter that compares the value
  * of a property against the specified range.
- * 
- * <h6 style="margin-bottom: 0.5em">Sources</h6>
+ *
  * <ul>
  * <li>ISO 19142:2010, cl. A.1.2: Basic WFS</li>
  * <li>ISO 19143:2010, cl. 7.7.3.7: PropertyIsBetween operator</li>
