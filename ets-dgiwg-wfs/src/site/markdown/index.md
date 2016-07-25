@@ -4,7 +4,7 @@
 
 This test suite is based on the following OGC specifications:
 
-- DGIWG - Web Feature Service 2.0 Profile [OGC 07-006r1](https://portal.dgiwg.org/files/?artifact_id=11487&format=pdf) 
+- DGIWG - Web Feature Service 2.0 Profile [OGC 07-006r1](https://portal.dgiwg.org/files/?artifact_id=11487&amp;format=pdf) 
 - TBD
 
 ## What is tested
