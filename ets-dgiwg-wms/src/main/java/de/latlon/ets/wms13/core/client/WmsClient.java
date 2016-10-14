@@ -67,6 +67,9 @@ public class WmsClient {
         }
         URI endpoint = ServiceMetadataUtils.getOperationEndpoint( this.wmsCapabilities, DGIWGWMS.GET_CAPABILITIES,
                                                                   ProtocolBinding.GET );
+        if (null == endpoint) {
+            throw new RuntimeException("GetCapabilities (GET) endpoint not found in capabilities document.");
+        }
         WebResource resource = client.resource( endpoint );
         MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
         queryParams.add( DGIWGWMS.REQUEST_PARAM, DGIWGWMS.GET_CAPABILITIES );

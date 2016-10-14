@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="${ets-code}-${project.version}" verbose="0" configfailurepolicy="skip">
+<suite name="${ets-code}-${project.version}" verbose="0" configfailurepolicy="continue">
   <parameter name="wms" value="" />
+  <parameter name="tes" value="" />
 
   <listeners>
     <listener class-name="de.latlon.ets.wms13.core.SuiteFixtureListener" />
   </listeners>
 
-  <test name="Basic service elements - 6.5">
+  <test name="Preconditions">
     <classes>
       <class name="de.latlon.ets.wms13.core.dgiwg.testsuite.Prerequisites" />
+    </classes>
+  </test>
+
+  <test name="Queryable WMS">
+    <classes>
+      <class name="de.latlon.ets.wms13.core.dgiwg.testsuite.QueryableWMS" />
+    </classes>
+  </test>
+
+  <test name="Basic service elements - 6.5">
+    <classes>
       <class name="de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.ConfiguredOutputFormatTest" />
       <class name="de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesOutputFormatTest" />
       <class name="de.latlon.ets.wms13.core.dgiwg.testsuite.getfeatureinfo.GetFeatureInfoOutputFormatTest" />
