@@ -9,7 +9,7 @@
   </formats>
   <includeBaseDirectory>true</includeBaseDirectory>
   <baseDirectory>${ets-code}/${spec-version}</baseDirectory>
-  <!-- <includeSiteDirectory>true</includeSiteDirectory> -->
+  <includeSiteDirectory>true</includeSiteDirectory>
   <fileSets>
     <fileSet>
       <directory>${project.build.scriptSourceDirectory}/ctl</directory>

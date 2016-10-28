@@ -17,6 +17,10 @@
     <developerConnection>scm:git:git@github.com:opengeospatial/ets-dgiwg.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
+  <issueManagement>
+    <system>GitHub Issue Tracker</system>
+    <url>https://github.com/opengeospatial/ets-dgiwg/issues</url>
+  </issueManagement>
 
   <prerequisites>
     <maven>3.2.5</maven>
@@ -104,6 +108,30 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.5.1</version>
+          <executions>
+            <execution>
+              <id>site-package</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.doxia</groupId>
+              <artifactId>doxia-module-markdown</artifactId>
+              <version>1.7</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <relativizeDecorationLinks>false</relativizeDecorationLinks>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -111,6 +139,11 @@
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/javadoc</directory>
+        <filtering>true</filtering>
+        <targetPath>doc/${ets-code}/${project.version}</targetPath>
       </resource>
     </resources>
     <testResources>
@@ -192,5 +225,43 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.9</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>license</report>
+              <report>issue-tracking</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <reportSets>
+          <reportSet>
+            <id>default</id>
+            <configuration>
+              <docfilessubdirs>true</docfilessubdirs>
+              <show>package</show>
+              <links>
+                <link>http://testng.org/javadocs/</link>
+              </links>
+            </configuration>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>

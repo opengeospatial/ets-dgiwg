@@ -18,37 +18,33 @@ import de.latlon.ets.core.util.TestSuiteLogger;
 public class UomMatcherFromFile implements UomMatcher {
 
     private static final String UOM_FILE = "uom.txt";
+    private List<String> expectedUoms;
 
-    private static final List<String> expectedUoms = parseUoms();
+    public UomMatcherFromFile() {
+        this.expectedUoms = parseUomsFromStream();
+    }
 
     @Override
-    public boolean isExpectedUoM( String uom ) {
-        if ( expectedUoms.contains( uom ) )
+    public boolean isExpectedUoM(String uom) {
+        if (expectedUoms.contains(uom))
             return true;
         return false;
     }
 
-    private static List<String> parseUoms() {
-        InputStream resource = UomMatcherFromFile.class.getResourceAsStream( UOM_FILE );
-        return parseUomsFromStream( resource );
-    }
-
-    private static List<String> parseUomsFromStream( InputStream resource ) {
+    List<String> parseUomsFromStream() {
         List<String> uoms = new ArrayList<String>();
-        if ( resource != null ) {
-            try ( BufferedReader br = new BufferedReader( new InputStreamReader( resource, "UTF-8" ) ) ) {
-                String line;
-                while ( ( line = br.readLine() ) != null ) {
-                    String uom = line.trim();
-                    if ( !uom.isEmpty() )
-                        uoms.add( uom );
-                }
-            } catch ( IOException e ) {
-                TestSuiteLogger.log( Level.WARNING, "UoM file " + UOM_FILE + " could not be parsed.", e );
+        try (InputStream resource = getClass().getResourceAsStream(UOM_FILE);
+                BufferedReader br = new BufferedReader(new InputStreamReader(resource, "UTF-8"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String uom = line.trim();
+                if (!uom.isEmpty())
+                    uoms.add(uom);
             }
-        } else {
-            TestSuiteLogger.log( Level.WARNING, "Could not find UoM file '" + UOM_FILE + "'." );
+        } catch (IOException e) {
+            TestSuiteLogger.log(Level.WARNING, "UoM file " + UOM_FILE + " could not be parsed.", e);
         }
+        TestSuiteLogger.log(Level.CONFIG, String.format("Recogized units of measure: %s", uoms.toString()));
         return uoms;
     }
 
