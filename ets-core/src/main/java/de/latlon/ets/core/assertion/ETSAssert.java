@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.core.MultivaluedMap;
 import javax.xml.namespace.QName;
+import javax.xml.transform.Result;
 import javax.xml.transform.Source;
-import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -161,10 +161,10 @@ public class ETSAssert {
             msg.append( e.getMessage() );
             throw new AssertionError( msg );
         }
-        DOMResult result = validator.validate( xmlSource );
+        Result result = validator.validate(xmlSource);
         Assert.assertFalse( validator.ruleViolationsDetected(),
                             ErrorMessage.format( ErrorMessageKey.NOT_SCHEMA_VALID, validator.getRuleViolationCount(),
-                                                 XMLUtils.writeNodeToString( result.getNode() ) ) );
+                                                 XMLUtils.resultToString(result) ) );
     }
 
     /**

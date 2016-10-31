@@ -158,17 +158,17 @@
       <dependency>
         <groupId>org.opengis.cite.teamengine</groupId>
         <artifactId>teamengine-spi</artifactId>
-        <version>4.7.1</version>
+        <version>4.9</version>
       </dependency>
       <dependency>
         <groupId>org.opengis.cite</groupId>
         <artifactId>schema-utils</artifactId>
-        <version>1.7</version>
+        <version>1.8</version>
       </dependency>
       <dependency>
         <groupId>org.opengis.cite</groupId>
         <artifactId>ets-wfs20</artifactId>
-        <version>1.23</version>
+        <version>1.25</version>
       </dependency>
       <dependency>
         <groupId>com.sun.jersey</groupId>

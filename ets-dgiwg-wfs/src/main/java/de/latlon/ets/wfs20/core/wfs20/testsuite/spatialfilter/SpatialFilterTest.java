@@ -97,7 +97,7 @@ public class SpatialFilterTest extends AbstractSpatialFilterTest {
         XSElementDeclaration geomProp = findGeometryProperty( featureType );
         Element valueRef = WFSMessage.createValueReference( geomProp );
         WFSMessage.appendSimpleQuery( this.reqEntity, featureType );
-        Document gmlEnv = Extents.envelopeAsGML( featureInfo.get( featureType ).getGeoExtent() );
+        Document gmlEnv = Extents.envelopeAsGML( featureInfo.get( featureType ).getSpatialExtent() );
         addSpatialOperatorPredicate( this.reqEntity, spatialOperatorName, gmlEnv.getDocumentElement(), valueRef );
 
         ClientResponse rsp = wfsClient.submitRequest( reqEntity, binding );

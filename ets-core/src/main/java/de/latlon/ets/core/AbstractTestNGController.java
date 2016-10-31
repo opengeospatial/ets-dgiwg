@@ -85,8 +85,7 @@ public abstract class AbstractTestNGController implements TestSuiteController {
     }
 
     /**
-     * Validates the given set of test run arguments. The test run is aborted if any checks fail. The test run argument
-     * ( {@link TestRunArg#WMS} must be supplied.
+     * Validates the given set of test run arguments. The test run is aborted if any checks fail.
      * 
      * @param testRunArgs
      *            a DOM Document containing a set of XML properties (key-value pairs)
