@@ -328,9 +328,10 @@ public final class ServiceMetadataUtils {
     }
 
     private static boolean parseQueryable( XPath xPath, Node layerNode )
-                    throws XPathExpressionException {
+                            throws XPathExpressionException {
         String queryableAttribute = (String) xPath.evaluate( "@queryable", layerNode, XPathConstants.STRING );
-        return queryableAttribute != null && "1".equals( queryableAttribute ) ? true : false;
+        return queryableAttribute != null &&
+               ( "1".equals( queryableAttribute ) ? true : false || Boolean.parseBoolean( queryableAttribute ) );
     }
 
     private static List<BoundingBox> parseBoundingBoxes( XPath xPath, Node layerNode )
