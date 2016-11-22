@@ -1,25 +1,23 @@
 
-# Test suite: ets-abc10
+# DGIWG – Web Map Service 1.3 Profile Conformance Test Suite
 
 ## Scope
 
 This executable test suite (ETS) verifies the conformance of the implementation 
-under test (IUT) with respect to the set of relevant specifications depicted in 
-Figure 1. Conformance testing is a kind of "black box" testing that examines the 
+under test (IUT) with respect to DGIWG – Web Map Service 1.3 Profile.
+Conformance testing is a kind of "black box" testing that examines the 
 externally visible characteristics or behaviors of the IUT while disregarding 
 any implementation details.
 
-**Figure 1: Relevant specifications**
 
-![Set of relevant specifications](img/specifications.png)
+## What is tested
 
-Several conformance classes are defined in the principal specifications; the ones 
-listed below are covered by this test suite:
+  - All requirements described in "DGIWG – Web Map Service 1.3 Profile".
 
-* Class A 
-    - List capabilities of conformance class A
-* Class B 
-    - List capabilities of conformance class B
+
+## What is not tested
+
+  - All recommendations described in "DGIWG – Web Map Service 1.3 Profile".
 
 
 ## Test requirements
@@ -27,22 +25,19 @@ listed below are covered by this test suite:
 The documents listed below stipulate requirements that must be satisfied by a 
 conforming implementation.
 
-1. [Web Content Accessibility Guidelines (WCAG) 2.0](http://www.w3.org/TR/WCAG20/)
-2. [Extensible Markup Language (XML) 1.0, Fifth Edition](http://www.w3.org/TR/xml/)
-3. [RFC 7231](https://tools.ietf.org/html/rfc7231) - Hypertext Transfer Protocol 
-(HTTP/1.1): Semantics and Content 
+1. [DGIWG – Web Map Service 1.3 Profile (09-102r3)](https://portal.opengeospatial.org/files/?artifact_id=66915)
+2. [Web Map Server Implementation Specification, Version 1.3.0 (06-042)](http://portal.opengeospatial.org/files/?artifact_id=14416)
 
 If any of the following preconditions are not satisfied then all tests in the 
 suite will be marked as skipped.
 
-1. Precondition 1;
-2. Precondition 2.
+1. WMS capabilities document must be available.
 
 
 ## Test suite structure
 
 The test suite definition file (testng.xml) is located in the root package, 
-`org.opengis.cite.abc10`. A conformance class corresponds to a &lt;test&gt; element, each 
+`de.latlon.ets.wms13.dgiwg`. A group corresponds to a &lt;test&gt; element, each 
 of which includes a set of test classes that contain the actual test methods. 
 The general structure of the test suite is shown in Table 1.
 
@@ -50,18 +45,46 @@ The general structure of the test suite is shown in Table 1.
   <caption>Table 1 - Test suite structure</caption>
   <thead>
     <tr style="text-align: left; background-color: LightCyan">
-      <th>Conformance class</th>
+      <th>Group</th>
       <th>Test classes</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Conformance Level 1</td>
-      <td>org.opengis.cite.abc10.level1.*</td>
+      <td>Preconditions</td>
+      <td>de.latlon.ets.wms13.core.dgiwg.testsuite.Prerequisites</td>
     </tr>
     <tr>
-      <td>Conformance Level 2</td>
-      <td>org.opengis.cite.abc10.level2.*</td>
+      <td>Queryable WMS</td>
+      <td>de.latlon.ets.wms13.core.dgiwg.testsuite.QueryableWMS</td>
+    </tr>
+    <tr>
+      <td>Basic service elements - 6.5</td>
+      <td>de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.ConfiguredOutputFormatTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesOutputFormatTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getfeatureinfo.GetFeatureInfoOutputFormatTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.interactive.GetCapabilitiesInEnglishLanguageTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getfeatureinfo.interactive.GetFeatureInfoInEnglishLanguageTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getmap.GetMapOutputFormatTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.GetCapabilitiesLayerCrsTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getmap.GetMapLayerCrsTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getfeatureinfo.interactive.GetFeatureInfoExceptionInEnglishLanguageTest<br/>
+      de.latlon.ets.wms13.core.dgiwg.testsuite.getmap.interactive.GetMapExceptionInEnglishLanguageTest</td>
+    </tr>
+    <tr>
+      <td>GetCapabilities Operation - 6.6.1, 6.6.2</td>
+      <td>de.latlon.ets.wms13.core.dgiwg.testsuite.getcapabilities.*<br/>
+      (except of classes tested by "Basic service elements - 6.5")</td>
+    </tr>
+    <tr>
+      <td>GetMap Operation - 6.6.3, 6.6.4</td>
+      <td>de.latlon.ets.wms13.core.dgiwg.testsuite.getmap.*<br/>
+      (except of classes tested by "Basic service elements - 6.5")</td>
+    </tr>
+    <tr>
+      <td>GetFeatureInfo Operation - 6.6.5, 6.6.6</td>
+      <td>de.latlon.ets.wms13.core.dgiwg.testsuite.getfeatureinfo.*<br/>
+      (except of classes tested by "Basic service elements - 6.5")</td>
     </tr>
   </tbody>
 </table>
@@ -76,29 +99,44 @@ The test run arguments are summarized in Table 2. The _Obligation_ descriptor ca
 have the following values: M (mandatory), O (optional), or C (conditional).
 
 <table>
-	<caption>Table 2 - Test run arguments</caption>
-	<thead>
-    <tr>
+  <caption>Table 2 -Test run arguments</caption>
+  <thead>
+    <tr style="text-align: left; background-color: LightCyan">
       <th>Name</th>
       <th>Value domain</th>
-	    <th>Obligation</th>
-	    <th>Description</th>
+      <th>Obligation</th>
+  	  <th>Description</th>
     </tr>
   </thead>
-	<tbody>
+  <tbody>
     <tr>
-      <td>iut</td>
+      <td>wms</td>
       <td>URI</td>
       <td>M</td>
-      <td>A URI that refers to the implementation under test or metadata about it.
-    Ampersand ('&amp;') characters must be percent-encoded as '%26'.</td>
+	  <td>A URI that refers to the implementation under test or metadata about it.
+      Ampersand ('&amp;') characters must be percent-encoded as '%26'.</td>
     </tr>
-	  <tr>
-      <td>ics</td>
-      <td>A comma-separated list of string values.</td>
-      <td>O</td>
-      <td>An implementation conformance statement that indicates which conformance 
-      classes or options are supported.</td>
+	<tr>
+      <td>vector</td>
+      <td>Boolean</td>
+      <td>M</td>
+      <td>Controls if tests targeting layers which base on vector data are executed.</td>
     </tr>
-	</tbody>
+  </tbody>
 </table>
+
+
+## Test Lead
+
+  - Dirk Stenger (latlon)
+
+
+##  Contributors
+
+  - Dirk Stenger (latlon)
+  - Richard Martell (Galdos)
+
+
+##  License
+
+[Apache License, Version 2.0](http://opensource.org/licenses/Apache-2.0 "Apache License")
