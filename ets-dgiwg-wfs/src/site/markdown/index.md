@@ -4,7 +4,7 @@
 
 This test suite is based on the following OGC specifications:
 
-  - DGIWG - Web Feature Service 2.0 Profile [OGC 07-006r1](https://portal.dgiwg.org/files/?artifact_id=11487&amp;format=pdf)
+  - DGIWG - Web Feature Service 2.0 Profile [DGIWG-122](https://portal.dgiwg.org/files/?artifact_id=11487&format=pdf)
   - OGC Web Feature Service 2.0 Interface Standard [09-025r2](http://docs.opengeospatial.org/is/09-025r2/09-025r2.html)
   - OGC Filter Encoding 2.0 Encoding Standard [09-026r2](http://docs.opengeospatial.org/is/09-026r2/09-026r2.html)
 
