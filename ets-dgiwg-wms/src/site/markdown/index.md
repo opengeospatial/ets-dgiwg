@@ -4,7 +4,7 @@
 ## Scope
 
 This executable test suite (ETS) verifies the conformance of the implementation under 
-test (IUT) with respect to DGIWG – Web Map Service 1.3 Profile ([DGIWG-112](https://portal.dgiwg.org/files/?artifact_id=11514&format=pdf)).
+test (IUT) with respect to DGIWG – Web Map Service 1.3 Profile, [DGIWG-112](https://portal.dgiwg.org/files/?artifact_id=11514).
 Conformance testing is a kind of "black box" testing that examines the externally 
 visible characteristics or behaviors of the IUT while disregarding any implementation details.
 
